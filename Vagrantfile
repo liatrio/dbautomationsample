@@ -8,9 +8,9 @@ Vagrant::Config.run do |config|
   end
 
   config.vm.define :dbauto do |dbauto|
-    sample.vm.host_name = "blackburntech-com-base"
-    sample.vm.box = "precise32"
-    sample.vm.box_url = "http://files.vagrantup.com/precise32.box"
+    dbauto.vm.host_name = "blackburntech-com-base"
+    dbauto.vm.box = "precise32"
+    dbauto.vm.box_url = "http://files.vagrantup.com/precise32.box"
   end
  
   config.vm.provision :chef_solo do |chef|
