@@ -26,4 +26,4 @@ This project uses:
 
 ## License
 
-`rubygems-aws` uses the MIT license. Please check the [LICENSE.md](LICENSE.md) file for more details.
+Just use it. If you can make it better please do.
