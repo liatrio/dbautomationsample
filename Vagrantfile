@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant::Config.run do |config|
-  if !File.directory?(File.expand_path("../cookbooks", __FILE__))
+  if !File.directory?(File.expand_path("../cookbooks/apt", __FILE__))
     puts "Run `librarian-chef install` first to bring down the cookbooks."
     exit 1
   end
@@ -20,6 +20,7 @@ Vagrant::Config.run do |config|
     chef.add_recipe "java"
     chef.add_recipe "maven"
     chef.add_recipe "mysql::server"
+    chef.add_recipe "db"
 
   chef.json = {
     "development" => true,
@@ -29,7 +30,13 @@ Vagrant::Config.run do |config|
       "server_debian_password" => "testpass",
       "allow_remote_root" => true,
       "bind_address" => "0.0.0.0",
-    }
+    },
+    "db" => {
+        "flywaysampe" => "db_flyway",
+        "mybatissample" => "db_mybatis",
+        "liquibasesample" => "db_liquibase"
+      }
+
   }
   end
 
