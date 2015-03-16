@@ -7,12 +7,14 @@ Vagrant::Config.run do |config|
     exit 1
   end
 
+  config.omnibus.chef_version = :latest
+
   config.vm.define :dbauto do |dbauto|
     dbauto.vm.host_name = "blackburntech-com-base"
     dbauto.vm.box = "precise32"
     dbauto.vm.box_url = "http://files.vagrantup.com/precise32.box"
   end
- 
+
   config.vm.provision :chef_solo do |chef|
     chef.add_recipe "apt"
     chef.add_recipe "git"
